@@ -3,19 +3,10 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storageAccountName": {
-      "value": "demostorage94581"
+      "value": "storageac945842"
     },
-    "containerName1" : {
+    "containerName": {
       "value": "documents"
-    },
-    "containerName2": {
-      "value": "grinderextracts"
-    },
-    "containerName3": {
-      "value": "surveyextracts"
-    },
-    "location": {
-      "value": "West Europe"
-    } 
+    }
   }
 }
