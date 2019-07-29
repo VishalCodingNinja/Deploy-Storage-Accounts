@@ -3,10 +3,10 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storageAccountName": {
-      "value": "storageac945842"
+      "value": "pocaccount9458"
     },
-    "containerName": {
-      "value": "documents"
+    "containerPrefix": {
+      "value": "logs"
     }
   }
 }

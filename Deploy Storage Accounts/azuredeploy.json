@@ -4,15 +4,16 @@
   "parameters": {
     "storageAccountName": {
       "type": "string",
+      "defaultValue": "pocaccount9458",
       "metadata": {
         "description": "Specifies the name of the Azure Storage account."
       }
     },
-    "containerName": {
+    "containerPrefix": {
       "type": "string",
-      "defaultValue": "documents",
+      "defaultValue": "emi",
       "metadata": {
-        "description": "Specifies the name of the blob container."
+        "description": "Specifies the prefix of the blob container names."
       }
     },
     "location": {
@@ -25,9 +26,9 @@
   },
   "resources": [
     {
-      "name": "[parameters('storageAccountName')]",
       "type": "Microsoft.Storage/storageAccounts",
       "apiVersion": "2018-07-01",
+      "name": "[parameters('storageAccountName')]",
       "location": "[parameters('location')]",
       "kind": "StorageV2",
       "sku": {
@@ -38,13 +39,17 @@
         "accessTier": "Hot"
       }
     },
-      {
-          "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
-          "apiVersion": "2018-03-01-preview",
-          "name": "[parameters('containerName')]",
-          "dependsOn": [
-            "[parameters('storageAccountName')]"
-          ]
-        }
+    {
+      "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+      "apiVersion": "2018-07-01",
+      "name": "[concat(parameters('storageAccountName'), '/default/', parameters('containerPrefix'), copyIndex())]",
+      "copy": {
+        "name": "containercopy",
+        "count": 3
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+      ]
+    }
   ]
 }
