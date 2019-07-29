@@ -11,7 +11,7 @@
     },
     "containerPrefix": {
       "type": "string",
-      "defaultValue": "emi",
+      "defaultValue": "logs",
       "metadata": {
         "description": "Specifies the prefix of the blob container names."
       }
