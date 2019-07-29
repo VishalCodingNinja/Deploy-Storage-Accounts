@@ -3,10 +3,16 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storageAccountName": {
-      "value": "pocaccount9458"
+      "value": "armtemp10010"
     },
     "containerPrefix": {
       "value": "logs"
+    },
+    "location": {
+      "value": "West Europe"
+    },
+    "xmlcachevalue": {
+      "value": "xmlcache"
     }
   }
 }
