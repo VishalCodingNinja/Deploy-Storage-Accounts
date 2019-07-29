@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storageAccountName": {
-      "value": "armtemp10010"
+      "value": "armtempa2z12"
     },
     "containerPrefix": {
       "value": "logs"
@@ -11,8 +11,11 @@
     "location": {
       "value": "West Europe"
     },
-    "xmlcachevalue": {
-      "value": "xmlcache"
+    "containerNameArray": {
+      "value": [ "xmlcache", "documents" ]
+    },
+    "containerNameArray2": {
+      "value": [ "xmlcache" ]
     }
   }
 }

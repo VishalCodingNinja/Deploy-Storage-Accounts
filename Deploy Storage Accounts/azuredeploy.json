@@ -23,9 +23,16 @@
         "description": "Specifies the location in which the Azure Storage resources should be deployed."
       }
     },
-    "xmlcachevalue": {
-      "type": "string",
-      "defaultValue": "xmlcachevalue",
+    "containerNameArray": {
+      "type": "array",
+      "defaultValue": [ "xmlcache", "documents" ],
+      "metadata": {
+        "description": "Specifies the location in which the Azure Storage resources should be deployed."
+      }
+    },
+    "containerNameArray2": {
+      "type": "array",
+      "defaultValue": [ "xmlcache" ],
       "metadata": {
         "description": "Specifies the location in which the Azure Storage resources should be deployed."
       }
@@ -50,28 +57,27 @@
       "condition": "[equals(parameters('location'),'West Europe')]",
       "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
       "apiVersion": "2018-07-01",
-      "name": "[concat(parameters('storageAccountName'), '/default/','xmlcache')]",
+      "name": "[concat(parameters('storageAccountName'), '/default/','dev-',parameters('containerNameArray')[copyIndex()],'we-sa')]",
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
-      ]
+      ],
+      "copy": {
+        "count": "[length(parameters('containerNameArray'))]",
+        "name": "containerCopy"
+      }
     },
     {
-      "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
-      "apiVersion": "2018-07-01",
-      "condition": "[equals(parameters('location'),'West Europe')]",
-      "name": "[concat(parameters('storageAccountName'), '/default/', 'documents')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
-      ]
-    },
-    {
-      "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
-      "apiVersion": "2018-07-01",
       "condition": "[equals(parameters('location'),'West US 2')]",
-      "name": "[concat(parameters('storageAccountName'), '/default/', parameters('xmlcachevalue'))]",
+      "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+      "apiVersion": "2018-07-01",
+      "name": "[concat(parameters('storageAccountName'), '/default/','dev-',parameters('containerNameArray2')[copyIndex()],'wus-sa')]",
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
-      ]
+      ],
+      "copy": {
+        "count": "[length(parameters('containerNameArray2'))]",
+        "name": "containerCopy"
+      }
     }
   ]
 }
