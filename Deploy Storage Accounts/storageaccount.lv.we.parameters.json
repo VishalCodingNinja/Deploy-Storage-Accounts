@@ -1,0 +1,22 @@
+﻿{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountName": {
+      "value": "lvstoragewesa"
+    },
+    "prefix": {
+      "value": "lv"
+    },
+    "location": {
+      "value": "West Europe"
+    },
+    "containerNameArray": {
+      "value": [ "xmlcache", "documents" ]
+    },
+    "containerNameArray2": {
+      "value": [ "xmlcache" ]
+    }
+  },
+  "resources": []
+}

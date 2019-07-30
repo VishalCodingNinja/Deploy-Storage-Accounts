@@ -3,19 +3,17 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storageAccountName": {
-      "value": "armtempa2z12"
+      "value": "dvstoragewesa"
     },
-    "containerPrefix": {
-      "value": "logs"
+    "prefix": {
+      "value": "dv"
     },
     "location": {
       "value": "West Europe"
     },
     "containerNameArray": {
       "value": [ "xmlcache", "documents" ]
-    },
-    "containerNameArray2": {
-      "value": [ "xmlcache" ]
     }
-  }
+  },
+  "resources": []
 }
