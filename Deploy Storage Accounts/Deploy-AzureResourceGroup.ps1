@@ -6,8 +6,8 @@ Param(
     [switch] $UploadArtifacts,
     [string] $StorageAccountName,
     [string] $StorageContainerName = $ResourceGroupName.ToLowerInvariant() + '-stageartifacts',
-    [string] $TemplateFile = 'azuredeploy.json',
-    [string] $TemplateParametersFile = 'azuredeploy.parameters.json',
+    [string] $TemplateFile = 'storageaccount.json',
+    [string] $TemplateParametersFile = 'storageaccount.dv.parameters.json',
     [string] $ArtifactStagingDirectory = '.',
     [string] $DSCSourceFolder = 'DSC',
     [switch] $ValidateOnly
